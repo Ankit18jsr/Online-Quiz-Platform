@@ -8,7 +8,7 @@ const QuizHome = () => {
 
   useEffect(() => {
     // Fetch all quizzes from the backend
-    axios.get('http://localhost:5000/api/quizzes')
+    axios.get('/api/quizzes')
       .then(res => setQuizzes(res.data))
       .catch(err => console.error(err));
   }, []);

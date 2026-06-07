@@ -14,7 +14,7 @@ const Register = () => {
     e.preventDefault();
     try {
       // Connects to the backend API we built earlier
-      await axios.post('http://localhost:5000/api/register', formData);
+      await axios.post('/api/register', formData);
       alert('Registration Successful! Please Login.');
       navigate('/login');
     } catch (error) {

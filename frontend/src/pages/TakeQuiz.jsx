@@ -15,7 +15,7 @@ const TakeQuiz = () => {
 
   // 1. Fetch the specific Quiz
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/quizzes/${id}`)
+    axios.get(`/api/quizzes/${id}`)
       .then(res => {
         setQuiz(res.data);
         setTimer(res.data.timeLimit * 60); // Convert minutes to seconds
@@ -74,7 +74,7 @@ const TakeQuiz = () => {
 
     // 3. Send to Database
     try {
-      await axios.post('http://localhost:5000/api/results', resultData);
+      await axios.post('/api/results', resultData);
       console.log('Score Saved!');
     } catch (err) {
       console.error('Error saving score:', err);

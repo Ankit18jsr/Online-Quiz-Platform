@@ -53,7 +53,7 @@ const AdminDashboard = () => {
   // Submit the Final Quiz to Database
   const submitQuiz = async () => {
     try {
-      await axios.post('http://localhost:5000/api/quizzes', quizData);
+      await axios.post('/api/quizzes', quizData);
       alert('Quiz Created Successfully!');
       navigate('/'); // Go back home
     } catch (error) {

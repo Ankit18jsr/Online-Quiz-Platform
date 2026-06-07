@@ -16,7 +16,7 @@ const UserDashboard = () => {
     }
 
     // Fetch user results
-    axios.get(`http://localhost:5000/api/results/${username}`)
+    axios.get(`/api/results/${username}`)
       .then(res => {
         setResults(res.data);
         calculateStats(res.data);

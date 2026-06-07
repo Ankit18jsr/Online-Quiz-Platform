@@ -13,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/login', formData);
+      const res = await axios.post('/api/login', formData);
       
       // Save the token and role in local storage
       localStorage.setItem('token', res.data.token);
