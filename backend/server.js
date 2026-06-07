@@ -30,6 +30,9 @@ app.post('/api/register', async (req, res) => {
     await newUser.save();
     res.status(201).json({ message: "User registered successfully!" });
   } catch (err) {
+    if (err.code === 11000) {
+      return res.status(400).json({ error: "Email is already registered. Please choose another email or log in." });
+    }
     res.status(500).json({ error: err.message });
   }
 });
