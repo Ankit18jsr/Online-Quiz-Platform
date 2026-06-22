@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
@@ -14,7 +14,7 @@ const Register = () => {
     e.preventDefault();
     try {
       // Connects to the backend API we built earlier
-      await axios.post('/api/register', formData);
+      await api.post('/api/register', formData);
       alert('Registration Successful! Please Login.');
       navigate('/login');
     } catch (error) {

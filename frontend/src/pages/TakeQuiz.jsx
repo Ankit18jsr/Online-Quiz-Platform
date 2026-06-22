@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api';
 
 const TakeQuiz = () => {
   const { id } = useParams();
@@ -15,7 +15,7 @@ const TakeQuiz = () => {
 
   // 1. Fetch the specific Quiz
   useEffect(() => {
-    axios.get(`/api/quizzes/${id}`)
+    api.get(`/api/quizzes/${id}`)
       .then(res => {
         setQuiz(res.data);
         setTimer(res.data.timeLimit * 60); // Convert minutes to seconds
@@ -74,7 +74,7 @@ const TakeQuiz = () => {
 
     // 3. Send to Database
     try {
-      await axios.post('/api/results', resultData);
+      await api.post('/api/results', resultData);
       console.log('Score Saved!');
     } catch (err) {
       console.error('Error saving score:', err);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
@@ -53,7 +53,7 @@ const AdminDashboard = () => {
   // Submit the Final Quiz to Database
   const submitQuiz = async () => {
     try {
-      await axios.post('/api/quizzes', quizData);
+      await api.post('/api/quizzes', quizData);
       alert('Quiz Created Successfully!');
       navigate('/'); // Go back home
     } catch (error) {

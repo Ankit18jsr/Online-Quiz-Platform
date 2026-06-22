@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const QuizHome = () => {
@@ -8,7 +8,7 @@ const QuizHome = () => {
 
   useEffect(() => {
     // Fetch all quizzes from the backend
-    axios.get('/api/quizzes')
+    api.get('/api/quizzes')
       .then(res => setQuizzes(res.data))
       .catch(err => console.error(err));
   }, []);

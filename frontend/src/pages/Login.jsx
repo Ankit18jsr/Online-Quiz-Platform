@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -13,7 +13,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('/api/login', formData);
+      const res = await api.post('/api/login', formData);
       
       // Save the token and role in local storage
       localStorage.setItem('token', res.data.token);

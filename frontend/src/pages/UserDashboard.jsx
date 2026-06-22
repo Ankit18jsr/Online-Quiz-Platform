@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useNavigate } from 'react-router-dom';
 
 const UserDashboard = () => {
@@ -16,7 +16,7 @@ const UserDashboard = () => {
     }
 
     // Fetch user results
-    axios.get(`/api/results/${username}`)
+    api.get(`/api/results/${username}`)
       .then(res => {
         setResults(res.data);
         calculateStats(res.data);
