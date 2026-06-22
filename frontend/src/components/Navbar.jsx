@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const Logo = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" className="h-8 w-8 md:h-10 md:w-10 bg-white rounded-full p-1 shadow-md">
     <circle cx="100" cy="100" r="90" fill="#2563EB" />
-    <path d="M100 20 L130 80 L190 80 L140 120 L160 180 L100 140 L40 180 L60 120 L10 80 L70 80 Z" fill="#FBBF24" stroke="white" strokeWidth="5"/>
+    <path d="M100 20 L130 80 L190 80 L140 120 L160 180 L100 140 L40 180 L60 120 L10 80 L70 80 Z" fill="#FBBF24" stroke="white" strokeWidth="5" />
     <text x="100" y="150" fontSize="0" textAnchor="middle" fill="white" fontWeight="bold">S</text>
   </svg>
 );
@@ -13,7 +13,7 @@ const Logo = () => (
 const Navbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false); // State for mobile menu
-  
+
   const isLoggedIn = !!localStorage.getItem('token');
   const userRole = localStorage.getItem('role');
 
@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <nav className="bg-gray-900 text-white shadow-lg sticky top-0 z-50 border-b border-gray-800">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-        
+
         {/* Brand */}
         <Link className="flex items-center gap-3 hover:opacity-80 transition" to="/">
           <Logo />
@@ -40,7 +40,7 @@ const Navbar = () => {
         {/* Desktop Menu (Hidden on Mobile) */}
         <div className="hidden md:flex items-center space-x-6">
           <Link to="/leaderboard" className="font-semibold text-gray-300 hover:text-yellow-400 transition flex items-center gap-1">🏆 Leaderboard</Link>
-          
+
           {isLoggedIn ? (
             <>
               {userRole === 'Admin' && <Link to="/admin-dashboard" className="font-semibold hover:text-blue-300 transition">Admin Panel</Link>}
